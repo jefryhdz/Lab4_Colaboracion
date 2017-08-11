@@ -5,10 +5,21 @@
  */
 package jefryhernandez_gabrielalvarado_lab4;
 
+import java.awt.Color;
+
 /**
  *
  * @author Jefry Hernandez
  */
-public class Duende {
+public class Duende extends Pieza {
+
+    public Duende(Color color) {
+        super(color);
+    }
+
+    @Override
+    public void movimiento() {
+        
+    }
     
 }

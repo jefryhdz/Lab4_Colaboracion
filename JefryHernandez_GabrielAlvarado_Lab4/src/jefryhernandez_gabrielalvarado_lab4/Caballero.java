@@ -5,10 +5,21 @@
  */
 package jefryhernandez_gabrielalvarado_lab4;
 
+import java.awt.Color;
+
 /**
  *
  * @author Jefry Hernandez
  */
-public class Caballero {
+public class Caballero extends Pieza{
+
+    public Caballero(Color color) {
+        super(color);
+    }
+
+    @Override
+    public boolean movimiento(int a, int b) {
+      return true;
+    }
     
 }

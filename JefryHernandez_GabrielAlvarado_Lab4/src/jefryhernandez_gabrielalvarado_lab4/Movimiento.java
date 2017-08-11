@@ -10,6 +10,6 @@ package jefryhernandez_gabrielalvarado_lab4;
  * @author Jefry Hernandez
  */
 public interface Movimiento {
-    public void movimiento();
+    public boolean movimiento(int a, int b, String [][]matriz, int x, int y);
 
 }
