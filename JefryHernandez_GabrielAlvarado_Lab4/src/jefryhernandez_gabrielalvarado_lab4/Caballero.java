@@ -32,14 +32,17 @@ public class Caballero extends Pieza {
         return "Caballero{" + "pieza=" + pieza + '}';
     }
 
-   
-   
-    
-
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        
-        return false;
+        if ((x + 1 == a && b == y) || (x - 1 == a && b == y) || (x == a && b - 1 == y) || (x == a && b + 1 == y)) {
+            if (matriz[a][b].equals(" ")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
 
     }
 }

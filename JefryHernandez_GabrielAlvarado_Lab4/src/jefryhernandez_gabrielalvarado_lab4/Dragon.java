@@ -49,6 +49,7 @@ public class Dragon extends Pieza {
         while (n > 0 && n1 > 0) {
             n--;
             n1--;
+            
             if (a == x - n && b == y - n1) {
                 if (matriz[x - n][y - n].equals(" ")) {
                     return true;

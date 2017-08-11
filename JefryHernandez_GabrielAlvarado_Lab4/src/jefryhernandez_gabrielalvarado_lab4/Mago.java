@@ -12,7 +12,8 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public class Mago extends Pieza {
-    private String pieza= "M";
+
+    private String pieza = "M";
 
     public Mago(Color color) {
         super(color);
@@ -26,41 +27,46 @@ public class Mago extends Pieza {
         this.pieza = pieza;
     }
 
-   
-
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        int n = (matriz.length-1)-x;
-        int n1 = (matriz.length-1)-y;
+        int n = (matriz.length - 1) - x;
+        int n1 = (matriz.length - 1) - y;
 
-        while (n>0&&n1>0) {
+        while (n > 0 && n1 > 0) {
             if (a == x - n && b == y - n1) {
-                if (matriz[x - n][y - n].equals(" ")) {
+                 if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
 
             } else if (a == x + n && b == y + n1) {
-                if (matriz[x + n][y + n].equals(" ")) {
+                 if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
             } else if (a == x + n && b == y - n1) {
-                if (matriz[x + n][y - n].equals(" ")) {
+                 if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
             } else if (a == x - n && b == y + n1) {
-                if (matriz[x - n][y + n].equals(" ")) {
+                if (matriz[a][b].equals(" ")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if ((a == x && b == y + n1) || (b == y && a == x + n)) {
+                if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
             }
-        }return false;
+        }
+        return false;
 
     }
 
