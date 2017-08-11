@@ -11,17 +11,21 @@ import java.awt.Color;
  *
  * @author Jefry Hernandez
  */
-public class Caballero extends Pieza{
+public class Caballero extends Pieza {
 
     public Caballero(Color color) {
         super(color);
     }
 
-   
-
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-       return false;
+        if (x + 1 == a && b == y) {
+            return false;
+        } else if (y+1== b &&a ==x) {
+
+        } else {
+            return false;
+        }
     }
-    
+
 }

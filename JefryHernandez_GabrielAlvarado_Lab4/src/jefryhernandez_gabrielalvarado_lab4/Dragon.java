@@ -19,10 +19,12 @@ public class Dragon extends Pieza {
 
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        int n = (matriz.length - 1) - x;
-        int n1 = (matriz.length - 1) - y;
+        int n = (matriz.length) - x;
+        int n1 = (matriz.length) - y;
 
         while (n > 0 && n1 > 0) {
+            n--;
+            n1--;
             if (a == x - n && b == y - n1) {
                 if (matriz[x - n][y - n].equals(" ")) {
                     return true;
@@ -51,7 +53,6 @@ public class Dragon extends Pieza {
             } else {
                 return false;
             }
-           
         }
         return true;
 
