@@ -15,9 +15,24 @@ public class Dragon extends Pieza {
 
     private String pieza = "F";
 
-    public Dragon(String pieza, Color color) {
-        super(pieza, color);
+    public Dragon(Color color) {
+        super(color);
     }
+
+    public String getPieza() {
+        return pieza;
+    }
+
+    public void setPieza(String pieza) {
+        this.pieza = pieza;
+    }
+
+    @Override
+    public String toString() {
+        return "Dragon{" + "pieza=" + pieza + '}';
+    }
+
+    
 
    
 
@@ -62,10 +77,7 @@ public class Dragon extends Pieza {
             } else {
                 return false;
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 51de48d4917e1cd32195e3e26cc054a9101f8cb8
         }
         return true;
 

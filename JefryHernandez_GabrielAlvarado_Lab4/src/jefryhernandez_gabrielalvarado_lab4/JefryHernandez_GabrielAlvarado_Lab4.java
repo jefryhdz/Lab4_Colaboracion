@@ -22,7 +22,16 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
         String Tablero[][] = new String[10][10];
         ArrayList <Pieza>ListPieza1 = new ArrayList();
         ArrayList <Pieza>ListPieza2 = new ArrayList();
-       ListPieza1.add(new Dragon(Color.yellow,"F"));
+       ListPieza1.add(new Dragon(Color.white));
+       ListPieza1.add(new Duende(Color.white));
+       ListPieza1.add(new Caballero(Color.white));
+       ListPieza1.add(new Mago(Color.white));
+       ListPieza1.add(new Rey(Color.white));
+       ListPieza2.add(new Dragon(Color.BLACK));
+       ListPieza2.add(new Duende(Color.BLACK));
+       ListPieza2.add(new Mago(Color.BLACK));
+       ListPieza2.add(new Mago(Color.BLACK));
+       
         
         
         Tablero = LlenarTablero();

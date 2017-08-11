@@ -11,33 +11,35 @@ import java.awt.Color;
  *
  * @author Jefry Hernandez
  */
-<<<<<<< HEAD
-public class Caballero extends Pieza{
-    private String pieza= "C";
-=======
 public class Caballero extends Pieza {
->>>>>>> 51de48d4917e1cd32195e3e26cc054a9101f8cb8
 
-    public Caballero(String pieza, Color color) {
-        super(pieza, color);
+    private String pieza = "C";
+
+    public Caballero(Color color) {
+        super(color);
     }
 
-<<<<<<< HEAD
-   
+    public String getPieza() {
+        return pieza;
+    }
+
+    public void setPieza(String pieza) {
+        this.pieza = pieza;
+    }
+
+    @Override
+    public String toString() {
+        return "Caballero{" + "pieza=" + pieza + '}';
+    }
 
    
+   
+    
 
-=======
->>>>>>> 51de48d4917e1cd32195e3e26cc054a9101f8cb8
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        if (x + 1 == a && b == y) {
-            return false;
-        } else if (y+1== b &&a ==x) {
+        
+        return false;
 
-        } else {
-            return false;
-        }
     }
-
 }

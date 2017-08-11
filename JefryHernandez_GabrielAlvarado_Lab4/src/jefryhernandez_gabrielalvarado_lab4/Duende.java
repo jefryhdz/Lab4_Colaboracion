@@ -12,11 +12,21 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public class Duende extends Pieza {
-    private String pieza= "D";
+    protected String pieza= "D";
 
     public Duende(Color color) {
         super(color);
     }
+
+    public String getPieza() {
+        return pieza;
+    }
+
+    public void setPieza(String pieza) {
+        this.pieza = pieza;
+    }
+
+   
 
     
     @Override
