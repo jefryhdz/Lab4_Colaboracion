@@ -140,26 +140,29 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
             int i;
             int i2;
             if (cont % 2 != 0) {
-                
+
                 JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
                 i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
                 i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
-                
+                try {
+                    validar(Tablero,i,i2);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
 
-            
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador");
                 i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
                 i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
+                try {
+                    validar(Tablero,i,i2);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
 
             }
         }
     }
-    
-    
-
-        
-    
 
     public static void imprimir(String[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
@@ -186,16 +189,12 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
             {"C", "-", "F", "A", "R", "M", "A", "F", "-", "C",},};
         return matriz;
     }
-    
-    public static void validar(String matriz[][],int x,int y) throws MiException
-    {
+
+    public static void validar(String matriz[][], int x, int y) throws MiException {
         int limit = matriz.length;
         int limit2 = matriz[0].length;
-        if (x>limit||y>limit2){
-             throw new MiException("Se salio del limite");
-    }
+        if (x > limit || y > limit2) {
+            throw new MiException("Se salio del limite");
+        }
     }
 }
-
-
-
