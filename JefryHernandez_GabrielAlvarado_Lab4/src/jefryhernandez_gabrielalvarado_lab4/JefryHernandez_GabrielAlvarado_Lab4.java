@@ -95,7 +95,7 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
                 int i2;
 
                 i2 = Integer.parseInt(
-                        JOptionPane.showInputDialog(
+                        JOptionPane.s   howInputDialog(
                                 "pocision a eliminar")
                 );
 

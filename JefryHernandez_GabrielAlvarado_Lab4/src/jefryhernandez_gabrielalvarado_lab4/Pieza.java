@@ -36,7 +36,9 @@ public abstract class Pieza implements Movimiento {
     public void setColor(Color color) {
         this.color = color;
     }
+   
 
+   
     @Override
     public String toString() {
         return "Pieza{" + "pieza=" + pieza + ", color=" + color + '}';
