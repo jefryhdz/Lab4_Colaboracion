@@ -18,7 +18,9 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        String Tablero[][] = new String[10][10];
+        Tablero = LlenarTablero();
+        imprimir(Tablero);
         ArrayList<Jugador> lista = new ArrayList();
         String op = "";
         while (!op.equals("e")) {
@@ -95,5 +97,31 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
             }
         }
 
+    }
+
+    public static void imprimir(String[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+
+            }
+            System.out.println("");
+
+        }
+    }
+
+    public static String[][] LlenarTablero() {
+        String[][] matriz = {
+            {"c", " ", "F", "A", "R", "M", "A", "A", "-", "C",},
+            {"D", " ", "A", "D", "C", "F", "D", "A", " ", "D",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",},
+            {"D", "", "A", "D", "C", "F", "D", "A", "-", "A",},
+            {"C", "-", "F", "A", "R", "M", "A", "F", "-", "C",},};
+        return matriz;
     }
 }
