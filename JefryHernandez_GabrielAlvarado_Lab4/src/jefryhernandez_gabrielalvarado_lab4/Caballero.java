@@ -17,9 +17,11 @@ public class Caballero extends Pieza{
         super(color);
     }
 
+   
+
     @Override
-    public boolean movimiento(int a, int b) {
-      return true;
+    public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
+       return false;
     }
     
 }
