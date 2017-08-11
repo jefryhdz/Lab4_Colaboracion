@@ -5,6 +5,7 @@
  */
 package jefryhernandez_gabrielalvarado_lab4;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,11 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
      */
     public static void main(String[] args) {
         String Tablero[][] = new String[10][10];
+        ArrayList <Pieza>ListPieza1 = new ArrayList();
+        ArrayList <Pieza>ListPieza2 = new ArrayList();
+       ListPieza1.add(new Dragon(Color.yellow,"F"));
+        
+        
         Tablero = LlenarTablero();
         imprimir(Tablero);
         ArrayList<Jugador> lista = new ArrayList();
@@ -95,6 +101,13 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
 
                 lista.remove(i2);
             }
+        }
+        
+        int cont=1;
+        if (cont%2!=0) {
+            JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
+            
+            
         }
 
     }

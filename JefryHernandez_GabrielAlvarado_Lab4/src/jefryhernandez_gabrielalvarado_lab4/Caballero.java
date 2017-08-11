@@ -12,10 +12,13 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public class Caballero extends Pieza{
+    private String pieza= "C";
 
-    public Caballero(Color color) {
-        super(color);
+    public Caballero(String pieza, Color color) {
+        super(pieza, color);
     }
+
+   
 
    
 

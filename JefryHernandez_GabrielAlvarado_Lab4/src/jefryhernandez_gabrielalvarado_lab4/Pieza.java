@@ -12,11 +12,21 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public abstract class Pieza implements Movimiento {
+    private String pieza;
 
     protected Color color;
 
-    public Pieza(Color color) {
+    public Pieza(String pieza, Color color) {
+        this.pieza = pieza;
         this.color = color;
+    }
+
+    public String getPieza() {
+        return pieza;
+    }
+
+    public void setPieza(String pieza) {
+        this.pieza = pieza;
     }
 
     public Color getColor() {
@@ -29,7 +39,9 @@ public abstract class Pieza implements Movimiento {
 
     @Override
     public String toString() {
-        return "Pieza{" + "color=" + color + '}';
+        return "Pieza{" + "pieza=" + pieza + ", color=" + color + '}';
     }
+
+   
 
 }

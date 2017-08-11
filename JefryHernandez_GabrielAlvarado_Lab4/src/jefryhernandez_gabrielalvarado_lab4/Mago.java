@@ -12,6 +12,7 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public class Mago extends Pieza {
+    private String pieza= "M";
 
     public Mago(Color color) {
         super(color);

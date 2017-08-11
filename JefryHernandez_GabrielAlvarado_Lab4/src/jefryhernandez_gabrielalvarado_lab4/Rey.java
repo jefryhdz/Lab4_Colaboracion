@@ -12,6 +12,7 @@ import java.awt.Color;
  * @author Jefry Hernandez
  */
 public class Rey extends Pieza {
+    private String pieza = "R";
 
     public Rey(Color color) {
         super(color);
@@ -19,8 +20,8 @@ public class Rey extends Pieza {
 
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
 
-    
+        return false;
+    }
+
+}

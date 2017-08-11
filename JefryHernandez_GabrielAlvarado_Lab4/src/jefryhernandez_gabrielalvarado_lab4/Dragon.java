@@ -13,9 +13,18 @@ import java.awt.Color;
  */
 public class Dragon extends Pieza {
 
-    public Dragon(Color color) {
-        super(color);
+    private String pieza = "F";
+
+    public Dragon(String pieza, Color color) {
+        super(pieza, color);
     }
+
+   
+
+    
+
+    
+    
 
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
@@ -51,7 +60,7 @@ public class Dragon extends Pieza {
             } else {
                 return false;
             }
-           
+
         }
         return true;
 
