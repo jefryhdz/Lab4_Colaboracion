@@ -6,6 +6,7 @@
 package jefryhernandez_gabrielalvarado_lab4;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -20,20 +21,42 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
      */
     public static void main(String[] args) {
         String Tablero[][] = new String[10][10];
-        ArrayList <Pieza>ListPieza1 = new ArrayList();
-        ArrayList <Pieza>ListPieza2 = new ArrayList();
-       ListPieza1.add(new Dragon(Color.white));
-       ListPieza1.add(new Duende(Color.white));
-       ListPieza1.add(new Caballero(Color.white));
-       ListPieza1.add(new Mago(Color.white));
-       ListPieza1.add(new Rey(Color.white));
-       ListPieza2.add(new Dragon(Color.BLACK));
-       ListPieza2.add(new Duende(Color.BLACK));
-       ListPieza2.add(new Mago(Color.BLACK));
-       ListPieza2.add(new Mago(Color.BLACK));
-       
-        
-        
+        ArrayList<Pieza> ListPieza1 = new ArrayList();
+        ArrayList<Pieza> ListPieza2 = new ArrayList();
+        ListPieza1.add(new Dragon(Color.white));
+        ListPieza1.add(new Dragon(Color.white));
+        ListPieza1.add(new Dragon(Color.white));
+        ListPieza1.add(new Duende(Color.white));
+        ListPieza1.add(new Duende(Color.white));
+        ListPieza1.add(new Duende(Color.white));
+        ListPieza1.add(new Duende(Color.white));
+        ListPieza1.add(new Caballero(Color.white));
+        ListPieza1.add(new Caballero(Color.white));
+        ListPieza1.add(new Caballero(Color.white));
+        ListPieza1.add(new Mago(Color.white));
+        ListPieza1.add(new Rey(Color.white));
+        ListPieza1.add(new Arquera(Color.WHITE));
+        ListPieza1.add(new Arquera(Color.WHITE));
+        ListPieza1.add(new Arquera(Color.WHITE));
+        ListPieza1.add(new Arquera(Color.WHITE));
+
+        ListPieza2.add(new Dragon(Color.BLACK));
+        ListPieza2.add(new Dragon(Color.BLACK));
+        ListPieza2.add(new Dragon(Color.BLACK));
+        ListPieza2.add(new Duende(Color.BLACK));
+        ListPieza2.add(new Duende(Color.BLACK));
+        ListPieza2.add(new Duende(Color.BLACK));
+        ListPieza2.add(new Duende(Color.BLACK));
+        ListPieza2.add(new Caballero(Color.BLACK));
+        ListPieza2.add(new Caballero(Color.BLACK));
+        ListPieza2.add(new Caballero(Color.BLACK));
+        ListPieza2.add(new Mago(Color.BLACK));
+        ListPieza2.add(new Rey(Color.BLACK));
+        ListPieza2.add(new Arquera(Color.BLACK));
+        ListPieza2.add(new Arquera(Color.BLACK));
+        ListPieza2.add(new Arquera(Color.BLACK));
+        ListPieza2.add(new Arquera(Color.BLACK));
+
         Tablero = LlenarTablero();
         imprimir(Tablero);
         ArrayList<Jugador> lista = new ArrayList();
@@ -104,21 +127,41 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
                 int i2;
 
                 i2 = Integer.parseInt(
-                        JOptionPane.s   howInputDialog(
+                        JOptionPane.showInputDialog(
                                 "pocision a eliminar")
                 );
 
                 lista.remove(i2);
             }
         }
-        
-        int cont=1;
-        if (cont%2!=0) {
-            JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
-            
-            
-        }
+        boolean ganador = false;
+        while (ganador == true) {
+            int cont = 1;
+            int i;
+            int i2;
+            if (cont % 2 != 0) {
 
+                JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
+                i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
+                i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
+                try {
+                    validar(Tablero,i,i2);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Es turno del segundo jugador");
+                i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
+                i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
+                try {
+                    validar(Tablero,i,i2);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+        }
     }
 
     public static void imprimir(String[][] matriz) {
@@ -145,5 +188,13 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
             {"D", "", "A", "D", "C", "F", "D", "A", "-", "A",},
             {"C", "-", "F", "A", "R", "M", "A", "F", "-", "C",},};
         return matriz;
+    }
+
+    public static void validar(String matriz[][], int x, int y) throws MiException {
+        int limit = matriz.length;
+        int limit2 = matriz[0].length;
+        if (x > limit || y > limit2) {
+            throw new MiException("Se salio del limite");
+        }
     }
 }
