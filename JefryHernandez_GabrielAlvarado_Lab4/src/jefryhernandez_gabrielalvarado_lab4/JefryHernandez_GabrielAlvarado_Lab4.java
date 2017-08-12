@@ -18,7 +18,11 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
 
     /**
      * @param args the command line arguments
+     *
      */
+    static ArrayList<Pieza> ListPieza1 = new ArrayList();
+    static ArrayList<Pieza> ListPieza2 = new ArrayList();
+
     public static void main(String[] args) {
         String Tablero[][] = new String[10][10];
         ArrayList<Pieza> ListPieza1 = new ArrayList();
@@ -61,13 +65,14 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
         imprimir(Tablero);
         ArrayList<Jugador> lista = new ArrayList();
         String op = "";
-        while (!op.equals("e")) {
+        while (!op.equals("f")) {
+           op="";
             op = JOptionPane.showInputDialog(""
                     + "a- Ingresar jugador\n"
                     + "b-listar jugadores \n"
-                    + "c-modificar jugador\n"
-                    + "d-eliminar jugador\n"
-                    + "e.Salir");
+                    + "c-eliminar jugador\n"
+                    + "e-jugar\n"
+                    + "f.Salir");
 
             if (op.equals("a")) {
                 int i;
@@ -133,33 +138,81 @@ public class JefryHernandez_GabrielAlvarado_Lab4 {
 
                 lista.remove(i2);
             }
-        }
-        boolean ganador = false;
-        while (ganador == true) {
-            int cont = 1;
-            int i;
-            int i2;
-            if (cont % 2 != 0) {
+            if (op.equals("e")) {
 
-                JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
-                i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
-                i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
-                try {
-                    validar(Tablero,i,i2);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                boolean ganador = false;
+                while (ganador == true) {
+                    int cont = 1;
+                    int i;
+                    int i2;
+                    if (cont % 2 != 0) {
+
+                        JOptionPane.showMessageDialog(null, "Es turno del primer jugador");
+                        String op2 = JOptionPane.showInputDialog("Menu\n"
+                                + "a.Mover pieza\n"
+                                + "b.comer\n");
+
+                        if (op2 == "a") {
+                            int posicion, posicion2;
+                            i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
+                            i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
+                            posicion = Integer.parseInt(JOptionPane.showInputDialog("Que pieza desea mover x"));
+                            posicion2 = Integer.parseInt(JOptionPane.showInputDialog("Que pieza desea mover y"));
+
+                            try {
+                                validar(Tablero, i, i2);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            try {
+                                validar(Tablero, posicion, posicion2);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            if (Tablero[posicion][posicion2] == "c" || Tablero[posicion][posicion2] == "d" || Tablero[posicion][posicion2] == "a" || Tablero[posicion][posicion2] == "f" || Tablero[posicion][posicion2] == "m" || Tablero[posicion][posicion2] == "r") {
+                                int index = ListPieza1.indexOf(Tablero[posicion][posicion2]);
+
+                                Pieza Pieza = ListPieza1.get(index);
+                                boolean si = Pieza.movimiento(i, i2, Tablero, posicion, posicion2);
+                                if (si) {
+                                    Tablero[i][i2] = Tablero[posicion][posicion2];
+                                }
+
+                            }
+
+                        } else {
+                            int posicion, posicion2;
+
+                            JOptionPane.showMessageDialog(null, "Es turno del segundo jugador");
+                            i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
+                            i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
+                            posicion = Integer.parseInt(JOptionPane.showInputDialog("Que pieza desea mover x"));
+                            posicion2 = Integer.parseInt(JOptionPane.showInputDialog("Que pieza desea mover y"));
+
+                            try {
+                                validar(Tablero, i, i2);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            try {
+                                validar(Tablero, posicion, posicion2);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            if (Tablero[posicion][posicion2] == "C" || Tablero[posicion][posicion2] == "D" || Tablero[posicion][posicion2] == "A" || Tablero[posicion][posicion2] == "F" || Tablero[posicion][posicion2] == "M" || Tablero[posicion][posicion2] == "R") {
+                                int index = ListPieza1.indexOf(Tablero[posicion][posicion2]);
+
+                                Pieza Pieza = ListPieza1.get(index);
+                                boolean si = Pieza.movimiento(i, i2, Tablero, posicion, posicion2);
+                                if (si) {
+                                    Tablero[i][i2] = Tablero[posicion][posicion2];
+                                }
+
+                            }
+
+                        }
+                    }
                 }
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Es turno del segundo jugador");
-                i = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en X"));
-                i2 = Integer.parseInt(JOptionPane.showInputDialog("ingrese las coordenadas en Y"));
-                try {
-                    validar(Tablero,i,i2);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-
             }
         }
     }
