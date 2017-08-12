@@ -33,4 +33,9 @@ public class Rey extends Pieza {
         return false;
     }
 
+    @Override
+    public String comer(int a, int b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

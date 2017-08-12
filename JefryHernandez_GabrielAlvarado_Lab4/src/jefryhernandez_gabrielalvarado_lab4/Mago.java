@@ -29,25 +29,34 @@ public class Mago extends Pieza {
 
     @Override
     public boolean movimiento(int a, int b, String[][] matriz, int x, int y) {
-        int n = (matriz.length - 1) - x;
-        int n1 = (matriz.length - 1) - y;
+        int n = (matriz.length) - x;
+        int n1 = (matriz.length) - y;
+        int cont = 0;
 
         while (n > 0 && n1 > 0) {
+            if (cont % 2 == 0) {
+                n--;
+                cont++;
+            } else {
+                n1--;
+                cont++;
+            }
+
             if (a == x - n && b == y - n1) {
-                 if (matriz[a][b].equals(" ")) {
+                if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
 
             } else if (a == x + n && b == y + n1) {
-                 if (matriz[a][b].equals(" ")) {
+                if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
                 }
             } else if (a == x + n && b == y - n1) {
-                 if (matriz[a][b].equals(" ")) {
+                if (matriz[a][b].equals(" ")) {
                     return true;
                 } else {
                     return false;
@@ -70,4 +79,60 @@ public class Mago extends Pieza {
 
     }
 
-}
+    public String comer(int a, int b, String[][] matriz, int x, int y) {
+        int n = (matriz.length) - x;
+        int n1 = (matriz.length) - y;
+        int cont = 0;
+
+        while (n > 0 && n1 > 0) {
+            if (cont % 2 == 0) {
+                n--;
+                cont++;
+            } else {
+                n1--;
+                cont++;
+            }
+
+            if (a == x - n && b == y - n1) {
+                if (!matriz[a][b].equals(" ")) {
+                    return matriz[a][b];
+                } else {
+                    return "no hay pieza";
+                }
+
+            } else if (a == x + n && b == y + n1) {
+                if (!matriz[a][b].equals(" ")) {
+                    return matriz[a][b];
+                } else {
+                    return "no hay pieza";
+                }
+            } else if (a == x + n && b == y - n1) {
+                if (!matriz[a][b].equals(" ")) {
+                    return matriz[a][b];
+                } else {
+                    return "no hay pieza";
+                }
+            } else if (a == x - n && b == y + n1) {
+                if (!matriz[a][b].equals(" ")) {
+                    return matriz[a][b];
+                } else {
+                    return "no hay pieza";
+                }
+            } else if ((a == x && b == y + n1) || (b == y && a == x + n)) {
+                if (!matriz[a][b].equals(" ")) {
+                    return matriz[a][b];
+                } else {
+                    return "no hay pieza";
+                }
+            } else {
+                return "no hay pieza";
+            }
+        }
+        
+
+    
+
+    
+
+
+

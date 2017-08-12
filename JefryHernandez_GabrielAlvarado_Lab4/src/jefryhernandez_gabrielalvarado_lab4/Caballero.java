@@ -45,4 +45,18 @@ public class Caballero extends Pieza {
         }
 
     }
+
+    @Override
+    public String comer(int a1, int b, String a[][], int x, int y) {
+        if ((x + 1 == a1 && b == y) || (x - 1 == a1 && b == y) || (x == a1 && b - 1 == y) || (x == a1 && b + 1 == y)) {
+            if (!a[a1][b].equals(" ")) {
+                return a[a1][b];
+            } else {
+                return "No se puede";
+            }
+        } else {
+            return "No se puede";
+        }
+        
+    }
 }
