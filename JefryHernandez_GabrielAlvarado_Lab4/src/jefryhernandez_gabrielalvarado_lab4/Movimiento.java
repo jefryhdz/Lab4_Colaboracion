@@ -11,5 +11,6 @@ package jefryhernandez_gabrielalvarado_lab4;
  */
 public interface Movimiento {
     public boolean movimiento(int a, int b, String [][]matriz, int x, int y);
+    public String comer(int a ,int b, String [][]ax, int x, int y);
 
 }
